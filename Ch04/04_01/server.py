@@ -9,8 +9,8 @@ app = FastAPI()
 class TimeResponse(BaseModel):
     delta: timedelta
 
-    @field_serializer
-    def serialize_delta(self, v: timedelta) -> int:
+    @field_serializer('delta')
+    def serialize_delta(self, v: timedelta) -> float:
         return v.total_seconds()
 
 
